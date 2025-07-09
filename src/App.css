@@ -1,38 +1,205 @@
-.App {
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f2f4f8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding: 40px;
+  min-height: 100vh;
+  transition: background-color 0.3s ease;
+}
+
+.app-wrapper {
+  width: 100%;
+  max-width: 600px;
+  padding: 0 16px;
+}
+
+.app {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button {
+  background-color: #3f51b5;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+button:hover {
+  background-color: #303f9f;
+}
+
+.task-list {
+  list-style: none;
+}
+
+.task-item {
+  background: #f9f9f9;
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: 12px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.task-item span {
+  flex: 1;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: left;
+  padding-right: 10px;
+}
+
+.task-item select {
+  margin-right: 10px;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.task-item button {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.task-item button:hover {
+  background: #c0392b;
+}
+
+/* ✅ Priority colors */
+.task-item.Low {
+  background-color: #e3fbe3;
+}
+
+.task-item.Medium {
+  background-color: #fff8e1;
+}
+
+.task-item.High {
+  background-color: #fdecea;
+}
+
+.task-item.done span {
+  text-decoration: line-through;
+  color: gray;
+  opacity: 0.6;
+}
+
+/* 🌙 Dark mode styles */
+.app-wrapper.dark body {
+  background: #1f1f1f;
+}
+
+.app-wrapper.dark .app {
+  background: #2a2a2a;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.app-wrapper.dark input {
+  background: #444;
+  color: white;
+  border: 1px solid #666;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.app-wrapper.dark .task-item.Low {
+  background-color: #2e4d2e;
+}
+
+.app-wrapper.dark .task-item.Medium {
+  background-color: #4a4425;
+}
+
+.app-wrapper.dark .task-item.High {
+  background-color: #5c2c2c;
+}
+
+.app-wrapper.dark .task-item select {
+  background: #333;
+  color: white;
+  border: 1px solid #666;
+}
+
+.toggle-theme {
+  background-color: transparent;
+  color: #666;
+  border: none;
+  margin-bottom: 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* 📱 Mobile layout */
+@media (max-width: 480px) {
+  .app {
+    padding: 20px;
   }
-  to {
-    transform: rotate(360deg);
+
+  h1 {
+    font-size: 20px;
   }
+
+  button, .toggle-theme {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .task-item select,
+  .task-item button {
+    width: 100%;
+  }
+
+  .clear-all {
+  background-color: #b71c1c;
+  margin-top: 10px;
+}
+
+.clear-all:hover {
+  background-color: #8e0000;
+}
+
 }
